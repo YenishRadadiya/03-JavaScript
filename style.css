@@ -1,9 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
+
 .header {
   background-color: #f5efe7;
   height: 70px;
@@ -12,17 +12,20 @@
   align-items: center;
   box-shadow: 5px 5px 15px #d8c4b6;
 }
+
 .header span {
   font-size: 50px;
   color: #213555;
   text-decoration: double;
 }
+
 .checkbox {
   opacity: 0;
   position: absolute;
 }
+
 .checkbox-label {
-  background-color: #111;
+  background-color: #fff;
   width: 50px;
   height: 26px;
   border-radius: 50px;
@@ -43,7 +46,7 @@
 }
 
 .checkbox-label .ball {
-  background-color: #fff;
+  background-color: #111;
   width: 22px;
   height: 22px;
   position: absolute;
@@ -52,9 +55,11 @@
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
+
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(24px);
 }
+
 .container {
   width: 100%;
   height: 100vh;
@@ -63,10 +68,12 @@
   align-items: center;
   background-color: #3e5879;
 }
+
 #container_calc {
   background-color: #213555;
   border-radius: 5px;
 }
+
 .text-field {
   display: flex;
   justify-content: center;
@@ -74,6 +81,20 @@
   width: 100%;
   height: 100%;
 }
+.container form input:not(.checkbox) {
+  border: 0;
+  outline: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: transparent;
+  background-color: #f5efe7;
+  box-shadow: 2px 2px 1px #d8c4b6;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 2%;
+}
+
 .container form input[type="text"] {
   height: 70px;
   width: 400px;
@@ -85,25 +106,13 @@
   box-shadow: 5px 5px 10px #3e5879;
   font-weight: bolder;
 }
+
 .container form input[value="="] {
   background-color: #008000;
   box-shadow: 2px 2px 1px #355e3b;
 }
+
 .container form input[value="C"] {
   background-color: #e23d28;
   box-shadow: 2px 2px 1px #ff4500;
-}
-.container form input {
-  border: 0;
-  outline: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  background: transparent;
-  background-color: #f5efe7;
-  box-shadow: 2px 2px 1px #d8c4b6;
-  font-size: 20px;
-  cursor: pointer;
-  margin: 5px;
-  /* padding-left: 7px; */
 }
