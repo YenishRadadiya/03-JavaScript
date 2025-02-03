@@ -67,6 +67,17 @@
   justify-content: center;
   align-items: center;
   background-color: #3e5879;
+  border: 10px solid black;
+
+  .calc-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+
+  form {
+    border: 2px solid #d8c4b6;
+  }
 
   form input:not(.checkbox) {
     border: 0;
