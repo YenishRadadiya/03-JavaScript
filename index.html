@@ -8,6 +8,7 @@
   <link rel="icon" type="image/x-icon" href="assets/calculator.png" />
   <!-- <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="style.css" type="text/css" />
+  <script src="script.js"></script>
 </head>
 
 <body>
@@ -27,12 +28,12 @@
       </div>
       <!-- Display Field -->
       <div class="text-field">
-        <input type="text" id="display" readonly />
+        <input type="text" id="display" value="" readonly />
       </div>
       <div id="container_calc">
         <!-- Row -1 -->
         <div class="calc_buttons">
-          <input type="button" value="log" class="fa-solid fa-chart-line" />
+          <input type="button" value="log" class="fa-solid fa-chart-line" onclick="display(value)" />
           <input type="button" value="π" class="fa-solid fa-pi" />
           <input type="button" value="e" class="fa-solid fa-e" />
           <input type="button" value="xʸ" class="exp-button" />
