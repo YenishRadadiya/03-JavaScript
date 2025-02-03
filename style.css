@@ -71,14 +71,14 @@
   .calc-header {
     display: flex;
     justify-content: space-between;
+  }
+
+  .content {
+    border: 2px solid #d8c4b6;
     margin: 10px;
   }
 
-  form {
-    border: 2px solid #d8c4b6;
-  }
-
-  form input:not(.checkbox) {
+  .content .calc_buttons button:not(.checkbox) {
     border: 0;
     outline: 0;
     width: 60px;
@@ -92,7 +92,7 @@
     margin: 2%;
   }
 
-  form input[type="text"] {
+  .content input[type="text"] {
     height: 70px;
     width: 400px;
     border-radius: 5px;
@@ -104,12 +104,12 @@
     font-weight: bolder;
   }
 
-  form input[value="="] {
+  .content .calc_buttons button[value="="] {
     background-color: #008000;
     box-shadow: 2px 2px 1px #355e3b;
   }
 
-  form input[value="C"] {
+  .content .calc_buttons button[value="C"] {
     background-color: #e23d28;
     box-shadow: 2px 2px 1px #ff4500;
   }
@@ -126,7 +126,7 @@
   }
 
   @media (max-width: 460px) and (max-height: 730px) {
-    form input:not(.checkbox) {
+    .content .calc_buttons button:not(.checkbox) {
       border: 0;
       outline: 0;
       width: 30px;
@@ -140,7 +140,7 @@
       margin: 1%;
     }
 
-    form input[type="text"] {
+    .content input[type="text"] {
       height: 10%;
       width: 100%;
       border-radius: 2px;
@@ -152,12 +152,12 @@
       font-weight: bolder;
     }
 
-    form input[value="="] {
+    .content .calc_buttons button[value="="] {
       background-color: #008000;
       box-shadow: 2px 2px 1px #355e3b;
     }
 
-    form input[value="C"] {
+    .content .calc_buttons button[value="C"] {
       background-color: #e23d28;
       box-shadow: 2px 2px 1px #ff4500;
     }

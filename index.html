@@ -15,10 +15,16 @@
   <!-- Header -->
   <div class="header"><span>Calculator</span></div>
   <!-- Calculator body -->
+
   <div class="container">
-    <form action="">
+    <!-- <form action=""> -->
+    <div class="content">
+
+
       <!-- Theme Changer -->
+
       <div class="calc-header">
+
         <input type="checkbox" class="checkbox" id="checkbox" />
         <label for="checkbox" class="checkbox-label">
           <i class="fas fa-moon"></i>
@@ -28,75 +34,70 @@
         <button id="btn-history"><i class="fa fa-history"
             style="font-size:36px;background-color:#3e5879;color: #213555;"></i></button>
       </div>
+
       <!-- Display Field -->
       <div class="text-field">
         <input type="text" id="display" value="" readonly />
       </div>
+
       <div class="container_calc">
         <!-- Row -1 -->
         <div class="calc_buttons">
-          <input type="button" value="log" class="fa-solid fa-chart-line" onclick="display(value)" />
-          <input type="button" value="π" class="fa-solid fa-pi" />
-          <input type="button" value="e" class="fa-solid fa-e" />
-          <input type="button" value="xʸ" class="exp-button" />
-          <input type="button" value="C" class="fa-solid fa-trash" title="Clear" />
+          <button value="log">log</button>
+          <button value="pi">π</button>
+          <button value="e">e</button>
+          <button value="x_power_y">xʸ</button>
+          <button value="C">C</button>
         </div>
+
         <!-- Row -2 -->
         <div class="calc_buttons">
-          <input type="button" value="√" class="fa-solid fa-square-root-variable" />
-          <input type="button" value="(" class="fa-solid fa-circle-left" />
-          <input type="button" value=")" class="fa-solid fa-circle-right" />
-          <input type="button" value="/" class="fa-solid fa-divide" />
-          <input type="button" value="⌫" class="fa-solid fa-arrow-left" title="Backspace" />
+          <button value="sqrt">√</button>
+          <button value="br_start">(</button>
+          <button value="br_end">)</button>
+          <button value="divide">/</button>
+          <button value="back_space">⌫</button>
         </div>
+
         <!-- Row 3 -->
         <div class="calc_buttons">
-          <input type="button" value="%" class="fa-solid fa-percent" />
-          <input type="button" value="7" />
-          <input type="button" value="8" />
-          <input type="button" value="9" />
-          <input type="button" value="*" class="fa-solid fa-xmark" />
+          <button value="percentage">%</button>
+          <button value="7">7</button>
+          <button value="8">8</button>
+          <button value="9">9</button>
+          <button value="*">*</button>
         </div>
 
         <!-- Row 4 -->
         <div class="calc_buttons">
-          <input type="button" value="sin" class="fa-solid fa-wave-square" />
-          <input type="button" value="4" />
-          <input type="button" value="5" />
-          <input type="button" value="6" />
-          <input type="button" value="-" class="fa-solid fa-minus" />
+          <button value="sin">sin</button>
+          <button value="4">4</button>
+          <button value="5">5</button>
+          <button value="6">6</button>
+          <button value="-">-</button>
         </div>
 
         <!-- Row 5 -->
         <div class="calc_buttons">
-          <input type="button" value="cos" class="fa-solid fa-wave-square" />
-          <input type="button" value="1" />
-          <input type="button" value="2" />
-          <input type="button" value="3" />
-          <input type="button" value="+" class="fa-solid fa-plus" />
+          <button value="cos">cos</button>
+          <button value="1">1</button>
+          <button value="2">2</button>
+          <button value="3">3</button>
+          <button value="+">+</button>
         </div>
 
         <!-- Row 6 -->
         <div class="calc_buttons">
-          <input type="button" value="tan" class="fa-solid fa-wave-square" />
-          <input type="button" value="±" class="fa-solid fa-plus-minus" />
-          <input type="button" value="0" />
-          <input type="button" value="." class="fa-solid fa-circle" />
-          <input type="button" value="=" class="fa-solid fa-equals" />
+          <button value="tan">tan</button>
+          <button value="sign_chng">±</button>
+          <button value="0">0</button>
+          <button value=".">.</button>
+          <button value="=">=</button>
+
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </body>
 
 </html>
-
-<!-- Row 1: Clear, Delete, Percentage, Backspace -->
-<!-- <div>
-            <input
-              type="button"
-              value="DEL"
-              class="fa-solid fa-xmark"
-              title="Delete"
-            />
-          </div> -->
