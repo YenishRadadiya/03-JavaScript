@@ -1,4 +1,6 @@
 var display_text = document.getElementById('display');
+var display_history_div = document.getElementById('display_history'); 
+var display_history_content=document.getElementById('history_content');
 display_text.value = '';
 var operand1=null, operand2=null, operator = null, ans=null;
 var count=1;
@@ -56,4 +58,30 @@ handleButtonClick('calc_content', 'click', 'clear', (e) => {
     operand2=null;
     operator=null;
 });
+function load_history() {
+    var display_history_div = document.getElementById('display_history'); // Get the div
 
+    if (display_history_div.style.display === 'block') { // Check if it's visible
+
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let temp = localStorage.getItem(key);
+
+            let p = document.createElement('p'); // Create <p> tag
+            p.textContent = temp; // Set text content to retrieved value
+            display_history_div.appendChild(p); // Append <p> to the div
+        }
+    }
+}
+
+document.getElementById('btn-history').addEventListener('click', (e) => {
+    // Use string ID
+    if(display_history_div.style.display === 'none' || display_history_div.style.display === '') {
+        display_history_div.style.display = 'block';
+        load_history();
+    }
+    else{
+        display_history_div.style.display = 'none';
+    }
+        
+});
