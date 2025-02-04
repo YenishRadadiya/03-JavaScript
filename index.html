@@ -8,7 +8,8 @@
   <link rel="icon" type="image/x-icon" href="assets/calculator.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css" type="text/css" />
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
+  <!-- <script defer src="main.js"></script> -->
 </head>
 
 <body>
@@ -19,7 +20,6 @@
   <div class="container">
     <!-- <form action=""> -->
     <div class="content">
-
 
       <!-- Theme Changer -->
 
@@ -37,67 +37,68 @@
 
       <!-- Display Field -->
       <div class="text-field">
-        <input type="text" id="display" value="" readonly />
+        <input type="text" id="display" readonly />
       </div>
 
-      <div class="container_calc">
+      <div class="container_calc" id="calc_buttons">
         <!-- Row -1 -->
         <div class="calc_buttons">
-          <button value="log">log</button>
-          <button value="pi">π</button>
-          <button value="e">e</button>
-          <button value="x_power_y">xʸ</button>
+          <button class="data-opreations" value="log">log</button>
+          <button class="data-opreations" value="pi">π</button>
+          <button class="data-opreations" value="e">e</button>
+          <button class="data-opreations" value="x_power_y">xʸ</button>
           <button value="C">C</button>
         </div>
 
         <!-- Row -2 -->
         <div class="calc_buttons">
-          <button value="sqrt">√</button>
-          <button value="br_start">(</button>
-          <button value="br_end">)</button>
-          <button value="divide">/</button>
+          <button class="data-opreations" value="sqrt">√</button>
+          <button class="data-opreations" value="br_start">(</button>
+          <button class="data-opreations" value="br_end">)</button>
+          <button class="data-opreations" value="/">/</button>
           <button value="back_space">⌫</button>
         </div>
 
         <!-- Row 3 -->
         <div class="calc_buttons">
-          <button value="percentage">%</button>
-          <button value="7">7</button>
-          <button value="8">8</button>
-          <button value="9">9</button>
-          <button value="*">*</button>
+          <button class="data-opreations" value="%">%</button>
+          <button class="data-number" value="7">7</button>
+          <button class="data-number" value="8">8</button>
+          <button class="data-number" value="9">9</button>
+          <button class="data-opreations" value="*">*</button>
         </div>
 
         <!-- Row 4 -->
         <div class="calc_buttons">
-          <button value="sin">sin</button>
-          <button value="4">4</button>
-          <button value="5">5</button>
-          <button value="6">6</button>
-          <button value="-">-</button>
+          <button class="data-opreations" value="sin">sin</button>
+          <button class="data-number" value="4">4</button>
+          <button class=" data-number" value="5">5</button>
+          <button class=" data-number" value="6">6</button>
+          <button class="data-opreations" value="-">-</button>
         </div>
 
         <!-- Row 5 -->
         <div class="calc_buttons">
-          <button value="cos">cos</button>
-          <button value="1">1</button>
-          <button value="2">2</button>
-          <button value="3">3</button>
-          <button value="+">+</button>
+          <button class="data-opreations" value="cos">cos</button>
+          <button class="data-number" value="1">1</button>
+          <button class="data-number" value="2">2</button>
+          <button class="data-number" value="3">3</button>
+          <button class="data-opreations" value="+">+</button>
         </div>
 
         <!-- Row 6 -->
         <div class="calc_buttons">
-          <button value="tan">tan</button>
-          <button value="sign_chng">±</button>
-          <button value="0">0</button>
-          <button value=".">.</button>
-          <button value="=">=</button>
+          <button class="data-opreations" value="tan">tan</button>
+          <button class="data-opreations" value="sign_chng">±</button>
+          <button class="data-number" value="0">0</button>
+          <button class="data-number" value=".">.</button>
+          <button class="eqals" value="=">=</button>
 
         </div>
       </div>
     </div>
   </div>
 </body>
+
 
 </html>
