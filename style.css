@@ -135,6 +135,7 @@
     height: 60vh;
     width: 20%;
     background-color: #f5efe7;
+    display: none;
 
     #history_header {
       display: flex;
@@ -159,7 +160,6 @@
     #history_content {
       p {
         font-size: large;
-        font-weight: bold;
         color: #3e5879;
       }
     }

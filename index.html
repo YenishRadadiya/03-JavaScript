@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css" type="text/css" />
   <script defer src="script.js"></script>
-  <!-- <script defer src="main.js"></script> -->
+  <script defer src="Calculator.js"></script>
 </head>
 
 <body>
@@ -42,7 +42,7 @@
       <div class="container_calc">
         <!-- Row -1 -->
         <div class="calc_buttons">
-          <button class="data-opreations" value="log">log</button>
+          <button class="data-opreations_so" value="log">log</button>
           <button class="data-opreations" value="pi">π</button>
           <button class="data-opreations" value="e">e</button>
           <button class="data-opreations" value="x_power_y">xʸ</button>
@@ -51,7 +51,7 @@
 
         <!-- Row -2 -->
         <div class="calc_buttons">
-          <button class="data-opreations" value="sqrt">√</button>
+          <button class="data-opreations_so" value="sqrt">√</button>
           <button class="data-opreations" value="br_start">(</button>
           <button class="data-opreations" value="br_end">)</button>
           <button class="data-opreations" value="/">/</button>
@@ -69,7 +69,7 @@
 
         <!-- Row 4 -->
         <div class="calc_buttons">
-          <button class="data-opreations" value="sin">sin</button>
+          <button class="data-opreations_so" value="sin">sin</button>
           <button class="data-number" value="4">4</button>
           <button class=" data-number" value="5">5</button>
           <button class=" data-number" value="6">6</button>
@@ -78,7 +78,7 @@
 
         <!-- Row 5 -->
         <div class="calc_buttons">
-          <button class="data-opreations" value="cos">cos</button>
+          <button class="data-opreations_so" value="cos">cos</button>
           <button class="data-number" value="1">1</button>
           <button class="data-number" value="2">2</button>
           <button class="data-number" value="3">3</button>
@@ -87,7 +87,7 @@
 
         <!-- Row 6 -->
         <div class="calc_buttons">
-          <button class="data-opreations" value="tan">tan</button>
+          <button class="data-opreations_so" value="tan">tan</button>
           <button class="data-opreations" value="sign_chng">±</button>
           <button class="data-number" value="0">0</button>
           <button class="data-number" value=".">.</button>
@@ -98,8 +98,7 @@
     </div>
     <div id="display_history">
       <div id="history_header">
-        <button>Clear</button>
-        <button><i class="fa fa-window-close" aria-hidden="true"></i></button>
+        <button class="btn_clr_history">Clear</button>
       </div>
       <div id="history_content"></div>
 
