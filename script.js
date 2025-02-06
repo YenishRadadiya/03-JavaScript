@@ -1,10 +1,11 @@
 var display_text = document.getElementById('display');
-var display_history_div = document.getElementById('display_history'); 
-var display_history_content=document.getElementById('history_content');
+var expression;
+var display_history_div = document.getElementById('display_history');
+var display_history_content = document.getElementById('history_content');
 display_text.value = '';
-var operand1=null, operand2=null, operator = null, ans=null;
-const pi=3.14;
-var count=1;
+var operand1 = null, operand2 = null, operator = null, ans = null;
+const pi = 3.14;
+var count = 1;
 
 function handleButtonClick(parent_element_id, event_type, element_class, callback) {
     document.getElementById(parent_element_id).addEventListener(event_type, (e) => {
@@ -16,19 +17,19 @@ function handleButtonClick(parent_element_id, event_type, element_class, callbac
 }
 
 function load_history() {
-    var display_history_div = document.getElementById('display_history'); 
-    var display_history_content = document.getElementById('history_content'); 
+    var display_history_div = document.getElementById('display_history');
+    var display_history_content = document.getElementById('history_content');
 
-    if (display_history_div.style.display === 'block') { 
-        display_history_content.innerHTML='';
+    if (display_history_div.style.display === 'block') {
+        display_history_content.innerHTML = '';
 
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i);
             let temp = localStorage.getItem(key);
 
-            let p = document.createElement('p'); 
-            p.textContent = temp; 
-            display_history_content.appendChild(p); 
+            let p = document.createElement('p');
+            p.textContent = temp;
+            display_history_content.appendChild(p);
         }
     }
 }
@@ -38,7 +39,6 @@ handleButtonClick('calc_content', 'click', 'data-number', (e) => {
     display_text.value += e.target.value;
     if (operator != null) {
         operand2 = display_text.value;
-
     }
 });
 
@@ -51,7 +51,7 @@ handleButtonClick('calc_content', 'click', 'data-opreations', (e) => {
 
 // handling single operand operations
 handleButtonClick('calc_content', 'click', 'data-opreations_so', (e) => {
-    operator=e.target.value;
+    operator = e.target.value;
     switch (operator) {
         case "sin":
             break;
@@ -65,7 +65,7 @@ handleButtonClick('calc_content', 'click', 'data-opreations_so', (e) => {
             break;
         default:
             ans = "Invalid Operator";
-    }    
+    }
     // display_text.value = ans;
     // localStorage.setItem(count.toString(),operand1+" "+operator+" "+operand2+" = "+ans);
     // count++;  
@@ -91,18 +91,18 @@ handleButtonClick('calc_content', 'click', 'eqals', (e) => {
             break;
         default:
             ans = "Invalid Operator";
-    }    
+    }
     display_text.value = ans;
-    localStorage.setItem(count.toString(),operand1+" "+operator+" "+operand2+" = "+ans);
+    localStorage.setItem(count.toString(), operand1 + " " + operator + " " + operand2 + " = " + ans);
     count++;
 });
 
 // clear the text field
 handleButtonClick('calc_content', 'click', 'clear', (e) => {
-    display_text.value='';
-    operand1=null;
-    operand2=null;
-    operator=null;
+    display_text.value = '';
+    operand1 = null;
+    operand2 = null;
+    operator = null;
 });
 
 // clear history button
@@ -113,11 +113,11 @@ handleButtonClick('history_header', 'click', 'btn_clr_history', (e) => {
 
 //  display or hide history section
 document.getElementById('btn-history').addEventListener('click', (e) => {
-    if(display_history_div.style.display === 'none' || display_history_div.style.display === '') {
+    if (display_history_div.style.display === 'none' || display_history_div.style.display === '') {
         display_history_div.style.display = 'block';
         load_history();
     }
-    else{
+    else {
         display_history_div.style.display = 'none';
     }
 
