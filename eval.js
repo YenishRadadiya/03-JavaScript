@@ -3,7 +3,7 @@ function prec(c) {
 
     if (c === '^')
         return 3;
-    else if (c === '/' || c === '*')
+    else if (c === '/' || c === '*' || c === '%')
         return 2;
     else if (c === '+' || c === '-')
         return 1;
@@ -11,7 +11,7 @@ function prec(c) {
         return -1;
 }
 
-// Function to perform infix to postfix conversion with space seperated numbers and operators
+// Function to perform infix to postfix conversion
 function infixToPostfix(s) {
     let st = [];
     let result = "";
@@ -22,8 +22,8 @@ function infixToPostfix(s) {
         number = c.toString();
         // If the scanned character is
         // an operand, add it to the output string.
-        if (c >= '0' && c <= '9') {
-            while (i + 1 < s.length && (s[i + 1] >= '0' && s[i + 1] <= '9')) {
+        if ((c >= '0' && c <= '9') || c == '.') {
+            while (i + 1 < s.length && ((s[i + 1] >= '0' && s[i + 1] <= '9') || s[i + 1] == '.')) {
                 number += s[i + 1].toString();
                 i++;
             }
@@ -67,11 +67,11 @@ function infixToPostfix(s) {
     return result;
 }
 
-let exp = "200+20*15-(45/5)";
+let exp = "-10+10";
 var result1 = infixToPostfix(exp);
 console.log(result1);
 
-// multi-digit postfix evaluation function
+
 function evaluatePostfix(exp) {
     // create a stack
     let stack = [];
@@ -120,11 +120,17 @@ function evaluatePostfix(exp) {
                     break;
 
                 case '/':
-                    stack.push(parseInt(val2 / val1, 10));
+                    // stack.push(parseInt(val2 / val1, 10));
+                    stack.push(val2 / val1)
                     break;
-
                 case '*':
                     stack.push(val2 * val1);
+                    break;
+                case '^':
+                    stack.push(val2 ** val1);
+                    break;
+                case '%':
+                    stack.push(val2 % val1);
                     break;
             }
         }
@@ -132,4 +138,16 @@ function evaluatePostfix(exp) {
     return stack.pop();
 }
 
-console.log(evaluatePostfix(result1));
+try {
+    let exp = "3*sin(30)+cos(60)*pi";
+    console.log(evaluateExpression(exp)); // Expected: 1.5
+} catch (error) {
+    console.error(error.message);
+}
+
+try {
+    let exp = "3+++4"; // Invalid expression
+    console.log(evaluateExpression(exp)); // Should throw an error
+} catch (error) {
+    console.error(error.message);
+}
