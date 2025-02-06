@@ -45,13 +45,15 @@ handleButtonClick('calc_content', 'click', 'data-number', (e) => {
 
 // handling operation entry
 handleButtonClick('calc_content', 'click', 'data-opreations', (e) => {
-    operand1 = display_text.value;
-    operator = e.target.value;
-    display_text.value = '';
+    display_text.value += e.target.value;
+    // operand1 = display_text.value;
+    // operator = e.target.value;
+    // display_text.value = '';
 });
 
 // handling single operand operations
 handleButtonClick('calc_content', 'click', 'data-opreations_so', (e) => {
+    display_text.value += e.target.value;
     operator = e.target.value;
     switch (operator) {
         case "sin":
@@ -74,7 +76,7 @@ handleButtonClick('calc_content', 'click', 'data-opreations_so', (e) => {
 
 // handling eqaul operation
 handleButtonClick('calc_content', 'click', 'eqals', (e) => {
-    switch (operator) {
+    /*switch (operator) {
         case "+":
             ans = Number(operand1) + Number(operand2);
             break;
@@ -93,7 +95,8 @@ handleButtonClick('calc_content', 'click', 'eqals', (e) => {
         default:
             ans = "Invalid Operator";
     }
-    display_text.value = ans;
+    display_text.value = ans;*/
+    console.log(display_text.value)
     localStorage.setItem(count.toString(), operand1 + " " + operator + " " + operand2 + " = " + ans);
     count++;
 });
@@ -106,6 +109,10 @@ handleButtonClick('calc_content', 'click', 'clear', (e) => {
     operator = null;
 });
 
+handleButtonClick('calc_content', 'click', 'back_space', (e) => {
+    display_text.value = display_text.value.toString().replace(/.$/, '');
+
+});
 
 
 // clear history button
