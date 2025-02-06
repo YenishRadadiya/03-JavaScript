@@ -1,4 +1,4 @@
-function evaluateFunctions(expression) {
+export function evaluateFunctions(expression) {
     expression = expression.replace(/\bpi\b/g, Math.PI.toString());
     expression = expression.replace(/\be\b/g, Math.E.toString());
 

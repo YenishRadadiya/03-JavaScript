@@ -1,7 +1,9 @@
+import { display_history, clear_history } from "./util/history.js";
 var display_text = document.getElementById('display');
+
 var expression;
-var display_history_div = document.getElementById('display_history');
-var display_history_content = document.getElementById('history_content');
+// var display_history_div = document.getElementById('display_history');
+// var display_history_content = document.getElementById('history_content');
 display_text.value = '';
 var operand1 = null, operand2 = null, operator = null, ans = null;
 const pi = 3.14;
@@ -13,26 +15,25 @@ function handleButtonClick(parent_element_id, event_type, element_class, callbac
             callback(e);
         }
     });
-
 }
 
-function load_history() {
-    var display_history_div = document.getElementById('display_history');
-    var display_history_content = document.getElementById('history_content');
+// function load_history() {
+//     var display_history_div = document.getElementById('display_history');
+//     var display_history_content = document.getElementById('history_content');
 
-    if (display_history_div.style.display === 'block') {
-        display_history_content.innerHTML = '';
+//     if (display_history_div.style.display === 'block') {
+//         display_history_content.innerHTML = '';
 
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            let temp = localStorage.getItem(key);
+//         for (let i = 0; i < localStorage.length; i++) {
+//             let key = localStorage.key(i);
+//             let temp = localStorage.getItem(key);
 
-            let p = document.createElement('p');
-            p.textContent = temp;
-            display_history_content.appendChild(p);
-        }
-    }
-}
+//             let p = document.createElement('p');
+//             p.textContent = temp;
+//             display_history_content.appendChild(p);
+//         }
+//     }
+// }
 
 // handling number entry
 handleButtonClick('calc_content', 'click', 'data-number', (e) => {
@@ -105,20 +106,15 @@ handleButtonClick('calc_content', 'click', 'clear', (e) => {
     operator = null;
 });
 
+
+
 // clear history button
 handleButtonClick('history_header', 'click', 'btn_clr_history', (e) => {
-    localStorage.clear();
-    load_history();
+    clear_history();
 });
 
-//  display or hide history section
+// display or hide history section
 document.getElementById('btn-history').addEventListener('click', (e) => {
-    if (display_history_div.style.display === 'none' || display_history_div.style.display === '') {
-        display_history_div.style.display = 'block';
-        load_history();
-    }
-    else {
-        display_history_div.style.display = 'none';
-    }
+    display_history();
 
 });

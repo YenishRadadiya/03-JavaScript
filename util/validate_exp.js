@@ -1,5 +1,5 @@
 // Step 1: Validate expression (strict mode)
-function validateExpression(expression) {
+export function validateExpression(expression) {
     expression = expression.toLowerCase(); // Normalize case
 
     // Check for invalid sequences (e.g., `++`, `--`, `*/`, etc.)
@@ -26,3 +26,4 @@ function validateExpression(expression) {
 
     return expression; // If valid, return the expression unchanged
 }
+
