@@ -1,6 +1,4 @@
-// Function to return precedence of operators
 function prec(c) {
-
     if (c === '^')
         return 3;
     else if (c === '/' || c === '*' || c === '%')
@@ -15,113 +13,82 @@ function prec(c) {
 function infixToPostfix(s) {
     let st = [];
     let result = "";
-    let number;
+    let number = "";
+    let prevChar = ''; // Track previous character
 
-    for (var i = 0; i < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         let c = s[i];
-        number = c.toString();
-        // If the scanned character is
-        // an operand, add it to the output string.
-        if ((c >= '0' && c <= '9') || c == '.') {
-            while (i + 1 < s.length && ((s[i + 1] >= '0' && s[i + 1] <= '9') || s[i + 1] == '.')) {
-                number += s[i + 1].toString();
+
+        // Handle negative numbers (if '-' follows an operator or is at the start)
+        if (c === '-' && (i === 0 || /[\+\-\*\/\^\(]/.test(prevChar))) {
+            number = "-"; // Start forming a negative number
+            i++; // Move to next character
+            while (i < s.length && ((s[i] >= '0' && s[i] <= '9') || s[i] === '.')) {
+                number += s[i]; // Append digits
                 i++;
             }
-            result += number;
-            result += " ";
+            result += number + " ";
+            i--; // Adjust loop index
         }
-        // If the scanned character is 
-        // an ‘(‘, push it to the stack.
-        else if (c === '(')
-            st.push('(');
-
-        // If the scanned character is an ‘)’,
-        // pop and add to the output string from the stack
-        // until an ‘(‘ is encountered.
-        else if (c === ')') {
-            while (st[st.length - 1] !== '(') {
-                result += st.pop();
-                result += " ";
+        // Handle normal numbers
+        else if ((c >= '0' && c <= '9') || c === '.') {
+            number = c;
+            while (i + 1 < s.length && ((s[i + 1] >= '0' && s[i + 1] <= '9') || s[i + 1] === '.')) {
+                number += s[i + 1];
+                i++;
             }
-            st.pop();
+            result += number + " ";
         }
-
-        // If an operator is scanned
+        // Handle operators
+        else if (c === '(') {
+            st.push(c);
+        }
+        else if (c === ')') {
+            while (st.length && st[st.length - 1] !== '(') {
+                result += st.pop() + " ";
+            }
+            st.pop(); // Remove '('
+        }
         else {
-            while (st.length && (prec(c) < prec(st[st.length - 1]) ||
-                prec(c) === prec(st[st.length - 1]))) {
-                result += st.pop();
-                result += " ";
+            while (st.length && (prec(c) <= prec(st[st.length - 1]))) {
+                result += st.pop() + " ";
             }
             st.push(c);
         }
+
+        prevChar = c; // Update previous character
     }
 
-    // Pop all the remaining elements from the stack
+    // Pop remaining operators
     while (st.length) {
-        result += st.pop();
-        result += " ";
+        result += st.pop() + " ";
     }
 
-    // console.log(result);
-    return result;
+    return result.trim();
 }
 
-let exp = "-10+10";
-var result1 = infixToPostfix(exp);
-console.log(result1);
 
-
+// Function to evaluate postfix expression
 function evaluatePostfix(exp) {
-    // create a stack
     let stack = [];
+    let tokens = exp.split(/\s+/); // Split by spaces
 
-    // Scan all characters one by one
-    for (let i = 0; i < exp.length; i++) {
-        let c = exp[i];
-
-        if (c == ' ') {
-            continue;
-        }
-
-        // If the scanned character is an 
-        // operand (number here),extract
-        // the number. Push it to the stack.
-        else if (c >= '0' && c <= '9') {
-            let n = 0;
-
-            // extract the characters and
-            // store it in num
-            while (c >= '0' && c <= '9') {
-                n = n * 10 + (c - '0');
-                i++;
-                c = exp[i];
-            }
-            i--;
-
-            // push the number in stack
-            stack.push(n);
-        }
-
-        // If the scanned character is
-        // an operator, pop two elements
-        // from stack apply the operator
-        else {
+    for (let token of tokens) {
+        if (!isNaN(token)) {
+            stack.push(parseFloat(token)); // Convert to float
+        } else {
             let val1 = stack.pop();
             let val2 = stack.pop();
 
-            switch (c) {
+            switch (token) {
                 case '+':
                     stack.push(val2 + val1);
                     break;
-
                 case '-':
                     stack.push(val2 - val1);
                     break;
-
                 case '/':
-                    // stack.push(parseInt(val2 / val1, 10));
-                    stack.push(val2 / val1)
+                    stack.push(val2 / val1);
                     break;
                 case '*':
                     stack.push(val2 * val1);
@@ -138,16 +105,9 @@ function evaluatePostfix(exp) {
     return stack.pop();
 }
 
-try {
-    let exp = "3*sin(30)+cos(60)*pi";
-    console.log(evaluateExpression(exp)); // Expected: 1.5
-} catch (error) {
-    console.error(error.message);
+export function evaluate(expression) {
+    let postfix = infixToPostfix(expression);
+    return evaluatePostfix(postfix);
 }
 
-try {
-    let exp = "3+++4"; // Invalid expression
-    console.log(evaluateExpression(exp)); // Should throw an error
-} catch (error) {
-    console.error(error.message);
-}
+

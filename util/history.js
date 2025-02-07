@@ -10,11 +10,14 @@ function load_history() {
 
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i);
-            let temp = localStorage.getItem(key);
+            if (key != 'theme') {
+                let temp = localStorage.getItem(key);
+                let p = document.createElement('p');
+                p.textContent = temp;
+                history_content.appendChild(p);
 
-            let p = document.createElement('p');
-            p.textContent = temp;
-            history_content.appendChild(p);
+            }
+
         }
     }
 }
@@ -36,4 +39,3 @@ export function clear_history() {
     localStorage.clear();
     load_history();
 }
-// export { display_history, clear_history };
