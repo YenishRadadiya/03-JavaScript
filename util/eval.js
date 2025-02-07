@@ -88,7 +88,13 @@ function evaluatePostfix(exp) {
                     stack.push(val2 - val1);
                     break;
                 case '/':
-                    stack.push(val2 / val1);
+                    if (val2 / val1 != Infinity) {
+                        stack.push(val2 / val1);
+                    }
+                    else {
+                        alert('Invalid Operation: Division by zero');
+                    }
+
                     break;
                 case '*':
                     stack.push(val2 * val1);
