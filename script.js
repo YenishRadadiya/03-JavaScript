@@ -9,7 +9,7 @@ const calculator = new Calculator(display_text);
 // Number and operation buttons
 handleButtonClick('calc_content', 'data-number', (e) => calculator.appendToDisplay(e.target.value));
 handleButtonClick('calc_content', 'data-opreations', (e) => calculator.appendToDisplay(e.target.value));
-handleButtonClick('calc_content', 'data-opreations_so', (e) => calculator.appendToDisplay(e.target.value));
+handleButtonClick('calc_content', 'data-opreations_so', (e) => calculator.appendToDisplay(e.target.value + '('));
 handleButtonClick('calc_content', 'data-opreations_sc', (e) => {
     e.target.value = e.target.value !== '-' ? '-' : '+';
     calculator.appendToDisplay(e.target.value);
@@ -29,3 +29,4 @@ handleButtonClick('btn-history', '', display_history);
 
 // handling keypress
 handleKeyPress('display', () => calculator.calculate());
+

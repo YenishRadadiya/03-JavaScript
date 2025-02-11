@@ -19,7 +19,7 @@ function infixToPostfix(s) {
     for (let i = 0; i < s.length; i++) {
         let c = s[i];
 
-        // Handle negative numbers (if '-' follows an operator or is at the start)
+        // Handle negative numbers (if '-' is at previous position of number)
         if (c === '-' && (i === 0 || /[\+\-\*\/\^\(]/.test(prevChar))) {
             number = "-"; // Start forming a negative number
             i++; // Move to next character
@@ -37,7 +37,7 @@ function infixToPostfix(s) {
                 number += s[i + 1];
                 i++;
             }
-            result += number + " ";
+            result += number + " "; // adding space to deal with multi-digit numbers
         }
         // Handle operators
         else if (c === '(') {

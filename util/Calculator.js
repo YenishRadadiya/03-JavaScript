@@ -26,7 +26,8 @@ class Calculator {
         let expression = validateExpression(this.displayElement.value);
         expression = evaluateFunctions(expression);
         let ans = evaluate(expression);
-        this.displayElement.value += `=${ans}`;
+        // this.displayElement.value += `=${ans}`;
+        this.displayElement.value = ans;
         this.history.push(this.displayElement.value);
         localStorage.setItem(this.count.toString(), this.displayElement.value);
         this.count++;

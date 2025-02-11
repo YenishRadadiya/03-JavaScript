@@ -10,7 +10,7 @@ export function evaluateFunctions(expression) {
             case "tan": return parseFloat(Math.tan(num * Math.PI / 180).toFixed(4));
             case "log": return Math.log10(num).toFixed(4);
             case 'sqrt': return parseFloat(Math.sqrt(num)).toFixed(4);
-            default: return match; // Should not happen
+            default: return match;
         }
     });
 }
